@@ -1,0 +1,19 @@
+{
+  "name": "celestial-weather-server",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/HernaniPereira/Celestial-Forecast.git"
+  },
+  "author": "Hernani Pereira",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/HernaniPereira/Celestial-Forecast/issues"
+  },
+  "homepage": "https://github.com/HernaniPereira/Celestial-Forecast#readme"
+}
