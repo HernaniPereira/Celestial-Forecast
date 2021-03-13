@@ -9,7 +9,7 @@ const navigator = createStackNavigator(
     Forecast: ForecastScreen,
   },
   {
-    initialRouteName: "Login",
+    initialRouteName: "Forecast",
     defaultNavigationOptions: {
       title: "Celestial Weather",
     },
