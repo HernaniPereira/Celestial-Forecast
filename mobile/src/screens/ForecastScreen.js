@@ -5,14 +5,24 @@ import {
   StyleSheet,
   Dimensions,
   ImageBackground,
+  SafeAreaView,
   ScrollView,
+  RefreshControl,
   ActivityIndicator,
 } from "react-native";
 import CurrentWeather from "../components/CurrentWeather";
 import useResults from "../hooks/useResults";
+import DailyWeather from "../components/DailyWeather";
+import { FlatList } from "react-native-gesture-handler";
 
 const ForecastScreen = ({ navigation }) => {
-  const [searchApi, results, errorMessage, isloading] = useResults();
+  const [
+    searchApi,
+    results,
+    errorMessage,
+    isloading,
+    refreshing,
+  ] = useResults();
 
   if (isloading) {
     return (
@@ -21,21 +31,36 @@ const ForecastScreen = ({ navigation }) => {
       </View>
     );
   }
-
+  // refreshControl={
+  //   <RefreshControl
+  //     refreshing={refreshing}
+  //     onRefresh={() => searchApi()}/>}
   return (
-    <>
-      <ScrollView style={[styles.scrollview]}>
-        {errorMessage ? <Text>{errorMessage}</Text> : null}
-        <View style={styles.main_title}>
-          <Text style={styles.text}> Weather</Text>
-        </View>
-        <CurrentWeather style={styles.current} data={results} />
-      </ScrollView>
+    <SafeAreaView style={[styles.fixed, styles.container, { zIndex: -1 }]}>
+      {errorMessage ? <Text>{errorMessage}</Text> : null}
+
+      <FlatList
+        style={[styles.scrollview]}
+        ListHeaderComponent={
+          <>
+            <View style={styles.main_title}>
+              <Text style={styles.text}> Weather</Text>
+            </View>
+            <CurrentWeather style={styles.current} data={results} />
+          </>
+        }
+        ListFooterComponent={
+          <DailyWeather
+            style={styles.current}
+            data={results.daily.slice(0, 5)}
+          />
+        }
+      />
       <ImageBackground
         style={[styles.fixed, styles.containter, { zIndex: -1 }]}
         source={require("../media/night.jpg")}
       />
-    </>
+    </SafeAreaView>
   );
 };
 ForecastScreen.navigationOptions = () => {
@@ -45,19 +70,14 @@ ForecastScreen.navigationOptions = () => {
 };
 const styles = StyleSheet.create({
   container: {
-    width: Dimensions.get("window").width, //for full screen
-    height: Dimensions.get("window").height, //for full screen
-  },
-  container1: {
-    position: "absolute",
-    top: 0,
-    bottom: 0,
-    left: 0,
-    right: 0,
+    flex: 1,
+    backgroundColor: "#fff",
+    alignItems: "center",
+    justifyContent: "flex-start",
   },
   activityIndicator1: {
-    width: 50,
-    height: 50,
+    width: 70,
+    height: 70,
   },
   spinner: {
     flex: 1,

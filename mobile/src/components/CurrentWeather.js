@@ -1,14 +1,22 @@
 import React from "react";
 import { View, Text, StyleSheet, Image, FlatList } from "react-native";
 import ResultsHourlyDetail from "./ResultsHourlyDetail";
+import Moment from "moment";
+import Icon from "react-native-vector-icons/Entypo";
+
 const CurrentWeather = ({ data }) => {
-  console.log(data);
   const currentWeather = data.current.weather[0];
+  var date = new Date();
+  const formated_date = Moment(date).format("D MMM YYYY");
+
   return (
     <View style={styles.container}>
       <View style={styles.header}>
-        <Text style={[styles.location, styles.text]}>Title</Text>
-        <Text style={[styles.date_time, styles.text]}>Title</Text>
+        <View style={styles.address}>
+          <Icon name="location-pin" style={styles.icon}></Icon>
+          <Text style={styles.loremIpsum}>{data.street}</Text>
+        </View>
+        <Text style={[styles.date_time, styles.text]}>{formated_date}</Text>
       </View>
       <View style={styles.currentWeather}>
         <View style={styles.icon_temp}>
@@ -32,7 +40,7 @@ const CurrentWeather = ({ data }) => {
           <Text style={[styles.title, styles.text]}>
             {currentWeather.description}
           </Text>
-          <Text style={[styles.title2, styles.text]}>
+          <Text style={[styles.title, styles.text]}>
             Feels like {Math.round(data.current.feels_like)}°C
           </Text>
           <Text style={styles.subhead}>Subhead</Text>
@@ -58,16 +66,11 @@ const styles = StyleSheet.create({
     borderRadius: 20,
     flexWrap: "nowrap",
     backgroundColor: "#ffffff69",
-
-    elevation: 3,
-    overflow: "hidden",
   },
   header: {
     padding: 16,
     margin: 0,
   },
-  location: {},
-  date_time: {},
   currentWeather: {
     flexDirection: "row",
     alignItems: "center",
@@ -77,14 +80,14 @@ const styles = StyleSheet.create({
   },
   icon_temp: {
     flex: 1,
+    marginLeft: -16,
+    padding: 0,
     flexDirection: "row",
-    alignItems: "center",
-    alignSelf: "center",
+    justifyContent: "flex-start",
   },
   image: {
-    height: 80,
+    height: 90,
     width: 80,
-    borderRadius: 20,
   },
   headerContent: {
     justifyContent: "flex-start",
@@ -102,16 +105,11 @@ const styles = StyleSheet.create({
     lineHeight: 16,
     opacity: 0.5,
   },
-  info: {},
   title: {
     fontSize: 16,
     color: "#000",
     lineHeight: 20,
-  },
-  title2: {
-    fontSize: 16,
-    color: "#000",
-    lineHeight: 20,
+    textAlign: "right",
   },
   subhead: {
     fontSize: 14,
@@ -125,6 +123,21 @@ const styles = StyleSheet.create({
   },
   text: {
     color: "white",
+  },
+  icon: {
+    color: "rgba(128,128,128,1)",
+    fontSize: 25,
+    alignSelf: "center",
+    marginStart: -7,
+  },
+  loremIpsum: {
+    color: "white",
+
+    fontSize: 20,
+  },
+  address: {
+    flexDirection: "row",
+    justifyContent: "flex-start",
   },
 });
 

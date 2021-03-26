@@ -10,7 +10,7 @@ const ResultsHourlyDetail = ({ result }) => {
     <View style={styles.container}>
       <View style={styles.cardItem1Style}>
         <Text style={[styles.textStyle, styles.text]}>{hours}:00</Text>
-        <Text style={[styles.noteTextStyl, styles.text]}>
+        <Text style={[styles.textStyle, styles.text]}>
           {Math.round(result.temp)}°C
         </Text>
       </View>
@@ -28,12 +28,11 @@ const ResultsHourlyDetail = ({ result }) => {
 const styles = StyleSheet.create({
   cardItem1Style: {
     alignItems: "center",
-    padding: 16,
-    height: 72,
+    marginTop: 16,
     alignSelf: "center",
   },
   textStyle: {
-    fontSize: 16,
+    fontSize: 15,
     color: "#000",
     lineHeight: 20,
   },
