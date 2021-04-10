@@ -11,18 +11,12 @@ import ResultsDayList from "./ResultsDayList";
 import Moment from "moment";
 
 const DailyWeather = ({ data }) => {
-  console.log(data);
   return (
     <View style={styles.container}>
       <Text style={styles.text}>Forecast for 5 days</Text>
-      <FlatList
-        horizontal={false}
-        data={data}
-        keyExtractor={(item, index) => index.toString()}
-        renderItem={({ item }) => {
-          return <ResultsDayList result={item} />;
-        }}
-      />
+      {data.map((item) => {
+        return <ResultsDayList key={item.dt} result={item} />;
+      })}
     </View>
   );
 };
@@ -32,8 +26,10 @@ const styles = StyleSheet.create({
     marginStart: 16,
     marginEnd: 16,
     marginRight: 16,
+    marginBottom: 50,
     borderWidth: 1,
     borderRadius: 20,
+    paddingBottom: 10,
     flexWrap: "nowrap",
     backgroundColor: "#ffffff69",
   },

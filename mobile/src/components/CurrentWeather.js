@@ -3,6 +3,7 @@ import { View, Text, StyleSheet, Image, FlatList } from "react-native";
 import ResultsHourlyDetail from "./ResultsHourlyDetail";
 import Moment from "moment";
 import Icon from "react-native-vector-icons/Entypo";
+import Adress from "./Adress";
 
 const CurrentWeather = ({ data }) => {
   const currentWeather = data.current.weather[0];
@@ -12,10 +13,7 @@ const CurrentWeather = ({ data }) => {
   return (
     <View style={styles.container}>
       <View style={styles.header}>
-        <View style={styles.address}>
-          <Icon name="location-pin" style={styles.icon}></Icon>
-          <Text style={styles.loremIpsum}>{data.street}</Text>
-        </View>
+        <Adress data={data.street} />
         <Text style={[styles.date_time, styles.text]}>{formated_date}</Text>
       </View>
       <View style={styles.currentWeather}>
@@ -62,7 +60,6 @@ const CurrentWeather = ({ data }) => {
 const styles = StyleSheet.create({
   container: {
     margin: 16,
-    borderWidth: 1,
     borderRadius: 20,
     flexWrap: "nowrap",
     backgroundColor: "#ffffff69",
@@ -132,7 +129,6 @@ const styles = StyleSheet.create({
   },
   loremIpsum: {
     color: "white",
-
     fontSize: 20,
   },
   address: {
