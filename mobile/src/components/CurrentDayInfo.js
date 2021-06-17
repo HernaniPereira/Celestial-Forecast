@@ -1,34 +1,23 @@
 import React from "react";
-import { Text, View } from "react-native";
+import { StyleSheet, View, Text } from "react-native";
+import CurrentDayList from "./CurrentDayList";
+
 const CurrentDayInfo = () => {
-  var data = {
-    weather: [
-      {
-        id: 1,
-        icon_name: "sunny",
-        icon_color: "#fbec5d",
-        name: "UV index",
-        value: "Low",
-      },
-      { id: 2, name: "UV index", value: "Low" },
-      { id: 3, name: "UV index", value: "Low" },
-      { id: 4, name: "UV index", value: "Low" },
-      { id: 5, name: "UV index", value: "Low" },
-    ],
-  };
   return (
-    <View>
-      {data.weather.map((item) => {
-        console.log(item);
-        return (
-          <Text key={item.id} style={{ color: "#fff" }}>
-            {" "}
-            {item.name}
-          </Text>
-        );
-      })}
+    <View style={styles.container}>
+      <CurrentDayList />
     </View>
   );
 };
+
+const styles = StyleSheet.create({
+  container: {
+    margin: 16,
+    borderRadius: 20,
+    padding: 16,
+    flexWrap: "nowrap",
+    backgroundColor: "#ffffff69",
+  },
+});
 
 export default CurrentDayInfo;

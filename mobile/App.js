@@ -1,7 +1,9 @@
-import { createAppContainer } from "react-navigation";
+import React from "react";
+import { createAppContainer, ThemeContext } from "react-navigation";
 import { createStackNavigator } from "react-navigation-stack";
 import LoginScreen from "./src/screens/LoginScreen";
 import ForecastScreen from "./src/screens/ForecastScreen";
+import { ThemeProvider } from "./src/util/ThemeManager";
 
 const navigator = createStackNavigator(
   {
@@ -10,10 +12,21 @@ const navigator = createStackNavigator(
   },
   {
     initialRouteName: "Forecast",
-    defaultNavigationOptions: {
+    defaultNavigationOptions: ({ screenProps }) => ({
       title: "Celestial Weather",
-    },
+    }),
   }
 );
 
-export default createAppContainer(navigator);
+const Navigation = createAppContainer(navigator);
+
+const NavWithTheme = () => {
+  const { theme } = React.useContext(ThemeContext);
+  return <Navigation screenProps={{ theme }} />;
+};
+
+export default () => (
+  <ThemeProvider>
+    <Navigation />
+  </ThemeProvider>
+);
