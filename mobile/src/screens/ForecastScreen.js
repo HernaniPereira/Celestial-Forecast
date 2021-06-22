@@ -30,7 +30,7 @@ import MyText from "../components/main/MyText";
 import useAddress from "../hooks/useAdress";
 import Adress from "../components/Adress";
 import useNetInfo from "../hooks/useNetInfo";
-
+import NetworkError from "../components/NetworkError";
 // const themes = {
 //   light: {
 //     colors: {
@@ -140,6 +140,10 @@ const ForecastScreen = ({ navigation }) => {
   const { data, loading, error } = useWeatherLocation();
   const { toggleTheme, themeName } = useContext(ThemeContext);
   const netInfo = useNetInfo();
+
+  if (!netInfo) {
+    return <NetworkError />;
+  }
   if (loading) {
     return (
       <LottieView
