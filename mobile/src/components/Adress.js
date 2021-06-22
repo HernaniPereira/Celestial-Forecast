@@ -13,11 +13,15 @@ const useAdressLocation = () => {
 
 const Adress = () => {
   const { data, loading, error } = useAdressLocation();
-  console.log(data);
+
   if (loading) {
-    return;
+    return (
+      <View>
+        <Text>Loading</Text>
+      </View>
+    );
   }
-  console.log(data.name);
+
   return (
     <View style={styles.address}>
       <Icon name="location-pin" style={styles.icon}></Icon>

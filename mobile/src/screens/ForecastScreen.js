@@ -29,6 +29,7 @@ import useWeather from "../hooks/useWeather";
 import MyText from "../components/main/MyText";
 import useAddress from "../hooks/useAdress";
 import Adress from "../components/Adress";
+import useNetInfo from "../hooks/useNetInfo";
 
 // const themes = {
 //   light: {
@@ -138,7 +139,7 @@ const useWeatherLocation = () => {
 const ForecastScreen = ({ navigation }) => {
   const { data, loading, error } = useWeatherLocation();
   const { toggleTheme, themeName } = useContext(ThemeContext);
-
+  const netInfo = useNetInfo();
   if (loading) {
     return (
       <LottieView
@@ -167,7 +168,9 @@ const ForecastScreen = ({ navigation }) => {
             {/* <Text color={theme.primaryColor} style={styles.textTitle}>
               Weather
             </Text> */}
-            <MyText style={styles.textTitle}>Weather</MyText>
+            <MyText style={styles.textTitle}>
+              {netInfo ? "Online" : "Offline"}
+            </MyText>
           </View>
         )}
         renderStickyHeader={() => (
