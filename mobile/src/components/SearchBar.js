@@ -1,7 +1,14 @@
-import React, { useState, useRef } from "react";
-import { StyleSheet, TextInput, View, Button } from "react-native";
+import React, { useState, useEffect } from "react";
+import { StyleSheet, TextInput, View, Button, Keyboard } from "react-native";
+import Icon from "react-native-vector-icons/Ionicons";
+import * as Animatable from "react-native-animatable";
 
-const SearchBar = ({ locations, setLocations }) => {
+const SearchBar = ({
+  locations,
+  setLocations,
+  setSearchBarFocused,
+  searchBarFocused,
+}) => {
   const [text, setText] = useState();
 
   const onClick = () => {
@@ -9,16 +16,63 @@ const SearchBar = ({ locations, setLocations }) => {
     setText("");
   };
 
+  useEffect(() => {
+    Keyboard.addListener("keyboardDidShow", _keyboardDidShow);
+    Keyboard.addListener("keyboardWillShow", _keyboardWillShow);
+    Keyboard.addListener("keyboardWillHide", _keyboardWillHide);
+    Keyboard.addListener("keyboardDidHide", _keyboardDidHide);
+    return () => {
+      Keyboard.removeListener("keyboardDidShow", _keyboardDidShow);
+      Keyboard.removeListener("keyboardDidHide", _keyboardDidHide);
+      Keyboard.removeListener("keyboardWillShow", _keyboardWillShow);
+      Keyboard.removeListener("keyboardWilldHide", _keyboardWillHide);
+    };
+  }, []);
+
+  const _keyboardDidShow = () => {
+    setSearchBarFocused(true);
+  };
+  const _keyboardWillShow = () => {
+    setSearchBarFocused(true);
+  };
+  const _keyboardWillHide = () => {
+    setSearchBarFocused(false);
+  };
+  const _keyboardDidHide = () => {
+    setSearchBarFocused(false);
+  };
+
   return (
     <View style={styles.searchContainer}>
-      <TextInput
-        style={styles.searchInput}
-        placeholder="Type Something"
-        onChangeText={setText}
-        multiline={true}
-        value={text}
-        selectionColor="#fff"
-      />
+      <Animatable.View
+        style={[
+          styles.searchInput,
+          {
+            height: 50,
+            backgroundColor: "white",
+            flexDirection: "row",
+            alignItems: "center",
+          },
+        ]}
+      >
+        <Animatable.View
+          animation={searchBarFocused ? "fadeIn" : "zoomIn"}
+          duration={1000}
+        >
+          <Icon
+            name={searchBarFocused ? "md-arrow-back" : "ios-search"}
+            style={{ fontSize: 24 }}
+          />
+        </Animatable.View>
+        <TextInput
+          style={{ marginLeft: 15 }}
+          placeholder="Type Something"
+          onChangeText={setText}
+          multiline={true}
+          value={text}
+          selectionColor="#fff"
+        />
+      </Animatable.View>
       <Button
         style={styles.cancelSearch}
         onPress={() => onClick()}

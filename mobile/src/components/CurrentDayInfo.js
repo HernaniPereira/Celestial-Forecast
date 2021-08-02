@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import {
   StyleSheet,
   View,
@@ -13,47 +13,9 @@ import { useLocalStorage } from "../hooks";
 import DraggableFlatList from "react-native-draggable-flatlist";
 
 const CurrentDayInfo = () => {
-  // const [locations, setLocations] = useState([]);
   const [locations, setLocations] = useLocalStorage("LOCATIONS", []);
+  const [searchBarFocused, setSearchBarFocused] = useState(false);
 
-  /*  useEffect(
-    React.useCallback(() => {
-      getLocations();
-    }, [])
-  );
-
-  const getLocations = () => {
-    AsyncStorage.getItem("LOCATIONS").then((locations) => {
-      setLocations(JSON.parse(locations));
-    });
-  };
-
-  const deleteLocation = async (item) => {
-    console.log("aqui");
-    const newLocations = await locations.filter(
-      (location) => location !== item
-    );
-    await AsyncStorage.setItem("LOCATIONS", JSON.stringify(newLocations)).then(
-      () => getLocations()
-    );
-  }; */
-
-  /*   locations.map((item) => {
-    return (
-      <View key={item}>
-        <WeatherLocation
-          data={item}
-          onDelete={() => deleteLocation(item)}
-        />
-      </View>
-    );
-  }) */
-  console.log(locations);
-  /*  const renderItem = ({ item, index, drag, isActive }) => (
-    <TouchableOpacity onLongPress={drag} key={item}>
-      <WeatherLocation data={item} onDelete={() => deleteLocation(item)} />
-    </TouchableOpacity>
-  ); */
   const deleteLocation = (item) => {
     const newLocations = locations.filter((location) => location !== item);
     setLocations(newLocations);
@@ -65,25 +27,33 @@ const CurrentDayInfo = () => {
   );
   return (
     <View style={styles.container}>
-      <SearchBar locations={locations} setLocations={setLocations} />
+      <SearchBar
+        locations={locations}
+        setLocations={setLocations}
+        setSearchBarFocused={setSearchBarFocused}
+        searchBarFocused={searchBarFocused}
+      />
 
       {locations !== null ? (
-        <SafeAreaView style={{ flex: 1 }}>
-          <DraggableFlatList
-            horizontal={false}
-            data={locations}
-            keyExtractor={(item) => item}
-            renderItem={({ item, drag }) => (
-              <TouchableOpacity onLongPress={drag} key={item}>
-                <WeatherLocation
-                  data={item}
-                  onDelete={() => deleteLocation(item)}
-                />
-              </TouchableOpacity>
-            )}
-            onDragEnd={(newArray) => setLocations(newArray.data)}
-          />
-        </SafeAreaView>
+        <DraggableFlatList
+          style={{
+            backgroundColor: searchBarFocused
+              ? "rgba(0, 0, 0, 0.3)"
+              : "rgba(0, 0, 0, 0)",
+          }}
+          horizontal={false}
+          data={locations}
+          keyExtractor={(item) => item}
+          renderItem={({ item, drag }) => (
+            <TouchableOpacity onLongPress={drag} key={item}>
+              <WeatherLocation
+                data={item}
+                onDelete={() => deleteLocation(item)}
+              />
+            </TouchableOpacity>
+          )}
+          onDragEnd={(newArray) => setLocations(newArray.data)}
+        />
       ) : (
         <Text>Add locations</Text>
       )}
