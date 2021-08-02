@@ -4,6 +4,8 @@ import { createStackNavigator } from "react-navigation-stack";
 import LoginScreen from "./src/screens/LoginScreen";
 import ForecastScreen from "./src/screens/ForecastScreen";
 import { ThemeProvider } from "./src/util/ThemeManager";
+import { useNetInfo } from "./src/hooks";
+import { NetworkError } from "./src/components";
 
 const navigator = createStackNavigator(
   {
@@ -25,8 +27,12 @@ const NavWithTheme = () => {
   return <Navigation screenProps={{ theme }} />;
 };
 
-export default () => (
-  <ThemeProvider>
-    <Navigation />
-  </ThemeProvider>
-);
+export default () => {
+  const netInfo = useNetInfo();
+
+  return (
+    <ThemeProvider>
+      {!netInfo ? <NetworkError /> : <Navigation />}
+    </ThemeProvider>
+  );
+};

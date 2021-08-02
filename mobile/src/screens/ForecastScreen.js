@@ -29,8 +29,7 @@ import useWeather from "../hooks/useWeather";
 import MyText from "../components/main/MyText";
 import useAddress from "../hooks/useAdress";
 import Adress from "../components/Adress";
-import useNetInfo from "../hooks/useNetInfo";
-import NetworkError from "../components/NetworkError";
+
 // const themes = {
 //   light: {
 //     colors: {
@@ -139,11 +138,7 @@ const useWeatherLocation = () => {
 const ForecastScreen = ({ navigation }) => {
   const { data, loading, error } = useWeatherLocation();
   const { toggleTheme, themeName } = useContext(ThemeContext);
-  const netInfo = useNetInfo();
 
-  if (!netInfo) {
-    return <NetworkError />;
-  }
   if (loading) {
     return (
       <LottieView
@@ -159,8 +154,11 @@ const ForecastScreen = ({ navigation }) => {
   //     onRefresh={() => searchApi()}/>}
 
   return (
-    <SafeAreaView style={[styles.fixed, styles.container, { zIndex: -1 }]}>
+    <SafeAreaView
+      style={[styles.fixed, styles.container, { zIndex: -1, maxWidth: "100%" }]}
+    >
       <ParallaxScrollView
+        style={{ maxWidth: "100%" }}
         headerBackgroundColor="#333"
         backgroundColor="transparent"
         contentBackgroundColor="#fff00"
@@ -172,9 +170,7 @@ const ForecastScreen = ({ navigation }) => {
             {/* <Text color={theme.primaryColor} style={styles.textTitle}>
               Weather
             </Text> */}
-            <MyText style={styles.textTitle}>
-              {netInfo ? "Online" : "Offline"}
-            </MyText>
+            <MyText style={{ color: "blue" }}>Weather</MyText>
           </View>
         )}
         renderStickyHeader={() => (
@@ -190,11 +186,9 @@ const ForecastScreen = ({ navigation }) => {
           </View>
         )}
       >
-        <Main style={styles.scrollview}>
-          <CurrentWeather style={styles.current} data={data} />
-          <DailyWeather style={styles.current} data={data.daily.slice(0, 5)} />
-          <CurrentDayInfo />
-        </Main>
+        <CurrentWeather style={styles.current} data={data} />
+        <DailyWeather style={styles.current} data={data.daily.slice(0, 5)} />
+        <CurrentDayInfo />
       </ParallaxScrollView>
       <ImageBackground
         style={[styles.fixed, styles.containter, { zIndex: -1 }]}
