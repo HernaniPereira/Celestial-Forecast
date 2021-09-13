@@ -17,7 +17,7 @@
 [![star this repo](https://githubbadges.com/star.svg?user=hernanipereira&repo=celestial-forecast&style=default)](https://github.com/hernanipereira/celestial-forecast)
 [![fork this repo](https://githubbadges.com/fork.svg?user=hernanipereira&repo=celestial-forecast&style=default)](https://github.com/hernanipereira/celestial-forecast/fork)
 [![GitHub Issues](https://img.shields.io/github/issues/hernanipereira/celestial-forecast)](https://github.com/hernanipereira/celestial-forecast)
-[![License](https://img.shields.io/badge/license-MIT-orange.svg)]
+![License](https://img.shields.io/badge/license-MIT-orange.svg)
 
 
 <p align="center">
