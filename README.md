@@ -1,56 +1,73 @@
-# Zircon - A user-friendly Tile Engine & Text GUI [![Tweet](https://img.shields.io/twitter/url/http/shields.io.svg?style=social)](https://twitter.com/intent/tweet?text=Do%20you%20plan%20to%20make%20a%20roguelike%3F%20Look%20no%20further.%20Zircon%20is%20the%20right%20tool%20for%20the%20job.&url=https://github.com/Hexworks/zircon&hashtags=games,roguelikes)
 
-<img src="https://cdn.discordapp.com/attachments/205245036084985857/481213000540225550/full_example.gif"  alt="Full Example"/>
+<h1 align="center">
+  <br>
+    <img align="left"  width="200" src="https://github.com/PanagiotisDrakatos/Weather-Forecast/blob/master/ImagesDoc/dragdrop_hd.gif">
+    <img width="150" src="https://github.com/PanagiotisDrakatos/Weather-Forecast/blob/master/ImagesDoc/logo.png">
+    <img align="right"  width="200" src="https://github.com/PanagiotisDrakatos/Weather-Forecast/blob/master/ImagesDoc/dragdrop_hd.gif">
+  <br>
+  Weather-Forecast Implementation
+  <br>
+</h1>
 
-Need info? Check the [Docs][zircon-docs]
-| or [Create an issue](https://github.com/Hexworks/zircon/issues/new)
-| Check [our project Board](https://github.com/Hexworks/zircon/projects/2)
-| [Ask us on Discord][discord]
-| Support us on [Patreon](https://www.patreon.com/hexworks)
-| [Javadoc / Kdoc](https://hexworks.github.io/zircon/)
+<h4 align="center">A minimal java  Weather-Forecast app with awesome UI based on <a href="https://docs.oracle.com/javase/tutorial/uiswing/">Swing</a>.</h4>
 
-[![Circle CI](https://circleci.com/gh/Hexworks/zircon/tree/master.svg?style=shield)](https://circleci.com/gh/Hexworks/zircon/)
-[![Maven Central](https://maven-badges.herokuapp.com/maven-central/org.hexworks.zircon/zircon.core/badge.svg)](https://maven-badges.herokuapp.com/maven-central/org.hexworks.zircon/zircon.core)
-[![License](https://img.shields.io/badge/License-Apache%202.0-blue.svg)](https://opensource.org/licenses/Apache-2.0)
-[![Awesome](https://cdn.rawgit.com/sindresorhus/awesome/d7305f38d29fed78fa85652e3a63e154dd8e8829/media/badge.svg)](https://github.com/sindresorhus/awesome)
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+[![Build Status](https://travis-ci.org/PanagiotisDrakatos/Weather-Forecast.svg?branch=master)](https://travis-ci.org/PanagiotisDrakatos/Weather-Forecast)
+[![star this repo](http://githubbadges.com/star.svg?user=PanagiotisDrakatos&repo=Weather-Forecast&style=flat&color=fff&background=007ec6)](https://github.com/PanagiotisDrakatos/Weather-Forecast)
+[![GitHub Issues](https://img.shields.io/github/issues/PanagiotisDrakatos/Weather-Forecast.svg)](https://github.com/PanagiotisDrakatos/Weather-Forecast/issues)
+[![License](https://img.shields.io/badge/license-MIT-orange.svg)](https://github.com/PanagiotisDrakatos/Weather-Forecast/blob/master/LICENSE)
+[![GitHub pull requests](https://img.shields.io/github/issues-pr/PanagiotisDrakatos/Weather-Forecast.svg)](https://travis-ci.org/PanagiotisDrakatos/Weather-Forecast/pull_requests)
 
----
+<p align="center">
+  <img  src="https://github.com/PanagiotisDrakatos/Weather-Forecast/blob/master/ImagesDoc/ezgif.com-video-to-gif.gif">
+</p>
 
-## Table of Contents
 
-- [Getting Started](#getting-started)
-    - [Adding Zircon as a Maven Dependency](#adding-zircon-as-a-maven-dependency)
-    - [Basic Usage](#basic-usage)
-- [Best Practices](#best-practices)
-- [Features at a Glance](#features-at-a-glance)
-    - [Drawing](#drawing)
-    - [Input Handling](#input-handling)
-    - [Layering](#layering)
-    - [Text GUI Components](#text-gui-components)
-    - [Animations](#animations)
-    - [Shape and Box Drawing](#shape-and-box-drawing)
-    - [Fonts and Tilesets](#fonts-and-tilesets)
-    - [Road Map](#road-map)
-    - [License](#license)
-    - [Credits](#credits)
-    - [Thanks](#thanks)
+# Basic Overview
+Weather-Forecast app is what the title says it is. It's a quick, simple weather app. The features include the basics, including forecasts, current temperature, hourly forecasts, and more. Other than that, it's really not all that complicated. It's free to download with no in-app purchases and the source code available.
+ 
+The weather app supports global locations and has customizable Live Tile support. It is a nice option for the times you just need to check in on the weather to plan for your week ahead, your weekend plans or any other times when the weather could play a factor. This Weather app has a host of updates since released, with a few new features added to the mix. Furthermore, it delivers the basic weather information among with useful informations(Pressure clouds,Wind Speed) to your Windows computer in a clean, eye-catching and easy to use package together.
 
-## Getting Started
+# Benefits of Weather-Forecast
+Make confident decisions by using this awesome weather desktop application in order to get the current weather forecast for any city. Weather-Forecast has loads of features. However, the following list is a glimpse of that huge features list.
 
-If you want to start working with Zircon you can either add it to your project as a Maven dependency or you can try out
-the skeleton projects
-([Java](https://github.com/Hexworks/zircon.skeleton.java), [Kotlin](https://github.com/Hexworks/zircon.skeleton.kotlin))
-which come with batteries included.
+ * Awesome UI app.
+ * Easy to use.
+ * Value For Money.
+ * Available SourceCode.
+ * Your current conditions.
+ * A 7-Day forecast.
+ * Switching to your current locations based on your computer's Location Services.
+ 
+# API Usage
+The Celestial-Forecast uses the OpenWeatherMap API to get the current and the following weather. OpenWeatherMap API is free to use for smaller-scale applications.
+The link I've used is the one with one call API: https://api.openweathermap.org/data/2.5/onecall?lat={lat}&lon={lon}&exclude={part}&appid={API key}. 
+To get the user coords, I've used is provided by expo, called expo-location. It's link is https://docs.expo.dev/versions/latest/sdk/location/.
+ 
+ 
+# Features Instructions
 
-The official [documentation site][zircon-docs] contains a lot of information. The examples are also documented on the
-[Zircon Examples](https://hexworks.org/zircon/examples/) page *(under construction)*, and the best place to start is the
-[Zircon Crash Course](https://hexworks.org/zircon/docs/2018-07-18-a-zircon-crash-course).
+ * Maven Sample project Included with proper way to construct an app.
+ * The working Java sample includes both front End and Backend source code of the application.
+ * It is tested and ready to be used for commercial  purposes or to adapt it on any desirable desktop app specification you want.
 
-If you like learning by doing check out the source of *Zircon* from [here](https://github.com/Hexworks/zircon) and you
-can run the examples for yourself. If you are using *Java*
-start [here](https://github.com/Hexworks/zircon/tree/master/zircon.jvm.examples/src/main/java/org/hexworks/zircon/examples)
-. Alternatively if you use *Kotlin* the code can be
-found [here](https://github.com/Hexworks/zircon/tree/master/zircon.jvm.examples/src/main/kotlin/org/hexworks/zircon).
+# What You will Need?
+* About 15 minutes
+* Clone the repo ``` git clone https://github.com/HernaniPereira/Celestial-Forecast ```
+* cd into the Path that you previous Downlaod
+* Install Depencencies  ``` npm install ```
+* Make sure you have installed expo in your machine ``` npm i -g exp ```
+* Install expo-go in your android/ios device 
+* Launch the App ``` npm start ```
+* Make sure android sdk is configure
 
-If you just want to peruse the *Zircon* API navigate [here][api]. Everything which is intended to be part of the public
-API is there.
+# License
+<p> MIT /p>
+
+
+# Contacts
+Don't hesitate to ask me whatever you want. Stay tuned for more awesome projects :kissing_heart: . Follow me or Connect me via <a href="https://www.linkedin.com/in/hernanipereira/">Linkedin<a/>
+ 
+ 
+
+
