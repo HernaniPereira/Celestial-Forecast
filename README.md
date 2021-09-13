@@ -1,7 +1,7 @@
 
 <h1 align="center">
   <br>
-    <img align="left"  width="200" src="https://giphy.com/gifs/sun-5XPmDz5wb8cj6">
+    <iframe src="https://giphy.com/embed/5XPmDz5wb8cj6" width="480"align="left" height="433" frameBorder="0" class="giphy-embed" allowFullScreen></iframe><p><a href="https://giphy.com/gifs/sun-5XPmDz5wb8cj6">via GIPHY</a></p>
     <img width="150" src="https://github.com/PanagiotisDrakatos/Weather-Forecast/blob/master/ImagesDoc/logo.png">
     <img align="right"  width="200" src="https://giphy.com/gifs/sun-5XPmDz5wb8cj6">
   <br>
