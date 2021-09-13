@@ -1,10 +1,9 @@
 
 <h1 align="center">
   <br>
-  <div style="width:100%;height:0;padding-bottom:90%;position:relative;"><iframe src="https://giphy.com/embed/5XPmDz5wb8cj6" width="100%" height="100%" style="position:absolute" frameBorder="0" class="giphy-embed" allowFullScreen></iframe></div><p><a href="https://giphy.com/gifs/sun-5XPmDz5wb8cj6">via GIPHY</a></p>
-     <img align="left"  width="200" href="https://giphy.com/gifs/sun-5XPmDz5wb8cj6">
+     <img align="left"  width="200" src="https://github.com/PanagiotisDrakatos/Weather-Forecast/blob/master/ImagesDoc/dragdrop_hd.gif">
     <img width="150" src="https://github.com/PanagiotisDrakatos/Weather-Forecast/blob/master/ImagesDoc/logo.png">
-    <img align="right"  width="200" src="https://giphy.com/gifs/sun-5XPmDz5wb8cj6">
+    <img align="right"  width="200" src="https://github.com/PanagiotisDrakatos/Weather-Forecast/blob/master/ImagesDoc/dragdrop_hd.gif">
   <br>
   Weather-Forecast Implementation
   <br>
