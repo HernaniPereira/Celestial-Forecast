@@ -1,9 +1,9 @@
 
 <h1 align="center">
   <br>
-    <img align="left"  width="200" src="https://github.com/PanagiotisDrakatos/Weather-Forecast/blob/master/ImagesDoc/dragdrop_hd.gif">
+    <img align="left"  width="200" src="https://giphy.com/gifs/sun-5XPmDz5wb8cj6">
     <img width="150" src="https://github.com/PanagiotisDrakatos/Weather-Forecast/blob/master/ImagesDoc/logo.png">
-    <img align="right"  width="200" src="https://github.com/PanagiotisDrakatos/Weather-Forecast/blob/master/ImagesDoc/dragdrop_hd.gif">
+    <img align="right"  width="200" src="https://giphy.com/gifs/sun-5XPmDz5wb8cj6">
   <br>
   Weather-Forecast Implementation
   <br>
