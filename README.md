@@ -16,9 +16,9 @@
 [![star this repo](http://githubbadges.com/star.svg?user=PanagiotisDrakatos&repo=Weather-Forecast&style=flat&color=fff&background=007ec6)](https://github.com/HernaniPereira/Celestial-Forecast)
 [![star this repo](https://githubbadges.com/star.svg?user=hernanipereira&repo=celestial-forecast&style=default)](https://github.com/hernanipereira/celestial-forecast)
 [![fork this repo](https://githubbadges.com/fork.svg?user=hernanipereira&repo=celestial-forecast&style=default)](https://github.com/hernanipereira/celestial-forecast/fork)
-[![GitHub Issues](https://img.shields.io/github/issues/PanagiotisDrakatos/Weather-Forecast.svg)](https://github.com/PanagiotisDrakatos/Weather-Forecast/issues)
-[![License](https://img.shields.io/badge/license-MIT-orange.svg)](https://github.com/PanagiotisDrakatos/Weather-Forecast/blob/master/LICENSE)
-[![GitHub pull requests](https://img.shields.io/github/issues-pr/PanagiotisDrakatos/Weather-Forecast.svg)](https://travis-ci.org/PanagiotisDrakatos/Weather-Forecast/pull_requests)
+[![GitHub Issues](https://img.shields.io/github/issues/hernanipereira/celestial-forecast)](https://github.com/hernanipereira/celestial-forecast)
+[![License](https://img.shields.io/badge/license-MIT-orange.svg)]
+
 
 <p align="center">
   <img  src="https://github.com/PanagiotisDrakatos/Weather-Forecast/blob/master/ImagesDoc/ezgif.com-video-to-gif.gif">
