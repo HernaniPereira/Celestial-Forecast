@@ -5,7 +5,7 @@
     <img width="150" src="https://github.com/HernaniPereira/Celestial-Forecast/blob/master/assets/weather_logo.png">
     <img align="right"  width="200" src="https://github.com/HernaniPereira/Celestial-Forecast/blob/master/assets/sun.gif">
   <br>
-  Weather-Forecast Implementation
+  Celestial-Forecast
   <br>
 </h1>
 
