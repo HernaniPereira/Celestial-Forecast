@@ -2,7 +2,7 @@
 <h1 align="center">
   <br>
      <img align="left"  width="200" src="https://github.com/HernaniPereira/Celestial-Forecast/blob/master/assets/sun.gif">
-    <img width="150" src="https://github.com/PanagiotisDrakatos/Weather-Forecast/blob/master/ImagesDoc/logo.png">
+    <img width="150" src="https://github.com/HernaniPereira/Celestial-Forecast/blob/master/assets/logo.png">
     <img align="right"  width="200" src="https://github.com/HernaniPereira/Celestial-Forecast/blob/master/assets/sun.gif">
   <br>
   Weather-Forecast Implementation
