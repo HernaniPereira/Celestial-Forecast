@@ -24,10 +24,8 @@ import LottieView from "lottie-react-native";
 import { ThemeContext } from "../util/ThemeManager";
 //import useAdress from "../hooks/useAdressResults";
 import useLocation from "../hooks/useLocation";
-import { globalStyles } from "../styles/global";
 import useWeather from "../hooks/useWeather";
 import MyText from "../components/main/MyText";
-import useAddress from "../hooks/useAdress";
 import Adress from "../components/Adress";
 
 const useWeatherLocation = () => {
@@ -132,7 +130,6 @@ const styles = StyleSheet.create({
   current: {
     flex: 1,
     alignItems: "center",
-    height: 500,
     zIndex: 0,
   },
   scrollview: { paddingBottom: 120, backgroundColor: "#32a852" },

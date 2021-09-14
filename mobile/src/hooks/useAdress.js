@@ -8,12 +8,10 @@ export default (location) => {
   const searchStreet = async () => {
     try {
       if (location.loading) {
-        console.log("error loading");
         return;
       }
       if (location.error) {
         setError(location.error);
-        console.log("error locaiton");
         return;
       }
       const {

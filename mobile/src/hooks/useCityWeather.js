@@ -12,7 +12,6 @@ export default () => {
       const response = await openWeatherMap.get(
         `weather?appid=05284e19caeaf7894ce11464006825f0&q=${city}&units=metric`
       );
-      console.log(response.data.main.temp);
       setData(response.data);
       setError("");
       setLoading(false);

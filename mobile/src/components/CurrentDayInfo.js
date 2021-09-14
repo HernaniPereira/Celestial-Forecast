@@ -26,7 +26,7 @@ const CurrentDayInfo = () => {
     </View>
   );
   return (
-    <View style={styles.container}>
+    <SafeAreaView style={styles.container}>
       <SearchBar
         locations={locations}
         setLocations={setLocations}
@@ -40,6 +40,7 @@ const CurrentDayInfo = () => {
             backgroundColor: searchBarFocused
               ? "rgba(0, 0, 0, 0.3)"
               : "rgba(0, 0, 0, 0)",
+            borderRadius: 8,
           }}
           horizontal={false}
           data={locations}
@@ -59,17 +60,18 @@ const CurrentDayInfo = () => {
       )}
 
       {/* <CurrentDayList /> */}
-    </View>
+    </SafeAreaView>
   );
 };
 
 const styles = StyleSheet.create({
   container: {
-    margin: 16,
     borderRadius: 20,
-    padding: 16,
     flexWrap: "nowrap",
+    margin: 16,
+    padding: 16,
     flex: 1,
+
     backgroundColor: "#ffffff69",
     maxWidth: "100%",
   },

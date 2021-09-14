@@ -1,12 +1,50 @@
 import React from "react";
-import { Text, StyleSheet, View, Image } from "react-native";
+import { StyleSheet, View, Image } from "react-native";
+import Moment from "moment";
+import Text from "./main/MyText";
 
 const ResultsDayList = ({ result }) => {
-  console.log(result.item);
   const weather = result.weather[0];
+  const date = new Date(result.dt * 1000);
+  const day = date.getDay() + 1;
+  const month = date.getMonth() + 1;
+  Moment.locale("en");
+  var dt = result.dt;
+  console.log(Moment(dt).format("d MMM"));
   return (
     <View style={styles.container}>
-      <View style={styles.group2}>
+      <View
+        style={{
+          flex: 1,
+          flexDirection: "row",
+          alignItems: "center",
+        }}
+      >
+        <Image
+          style={{ width: 40, height: 40 }}
+          resizeMode="contain"
+          source={{
+            uri: `http://openweathermap.org/img/wn/${weather.icon}@4x.png`,
+          }}
+        />
+        <Text style={{ borderWidth: 1 }}>{Math.round(result.temp.day)}ºC</Text>
+      </View>
+      <View
+        style={{
+          flex: 1,
+          borderWidth: 1,
+          alignItems: "center",
+          justifyContent: "center",
+        }}
+      >
+        <Text style={styles.date}>18/21</Text>
+        <Text style={styles.condition}>raining</Text>
+      </View>
+      <View style={{ flex: 1, alignItems: "center", borderWidth: 1 }}>
+        <Text style={styles.min_max}>17/08</Text>
+        <Text>{result.weather[0].description}</Text>
+      </View>
+      {/*  <View style={styles.group2}>
         <View style={styles.headerstyle}>
           <View style={styles.icon_temp}>
             <Image
@@ -16,7 +54,7 @@ const ResultsDayList = ({ result }) => {
                 uri: `http://openweathermap.org/img/wn/${weather.icon}@4x.png`,
               }}
             />
-            <Text style={styles.temp}>20ºC</Text>
+            <Text style={styles.temp}>{Math.round(result.temp.day)}ºC</Text>
           </View>
           <View style={styles.day_condition}>
             <Text style={styles.date}>18/21</Text>
@@ -24,16 +62,18 @@ const ResultsDayList = ({ result }) => {
           </View>
           <View style={styles.min_max_prec}>
             <Text style={styles.min_max}>17/08</Text>
-            <Text style={styles.precipitation}>precipitaioons</Text>
+            <Text style={styles.precipitation}>
+              {result.weather[0].description}
+            </Text>
           </View>
         </View>
-      </View>
+      </View> */}
     </View>
   );
 };
 
 const styles = StyleSheet.create({
-  container: {},
+  container: { flexDirection: "row" },
   group2: {
     justifyContent: "space-between",
     flex: 1,
@@ -68,12 +108,9 @@ const styles = StyleSheet.create({
   },
   date: {
     color: "#121212",
-    alignSelf: "flex-start",
-    alignSelf: "center",
   },
   condition: {
     color: "#121212",
-    alignSelf: "flex-start",
   },
   min_max_prec: {
     alignSelf: "center",

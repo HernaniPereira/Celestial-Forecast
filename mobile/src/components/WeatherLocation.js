@@ -11,7 +11,6 @@ const WeatherLocation = ({ data, onDelete }) => {
   useEffect(() => {
     getCityWeather(data);
   }, []);
-
   if (loading) {
     return (
       <View>
@@ -32,9 +31,9 @@ const WeatherLocation = ({ data, onDelete }) => {
 
   return (
     <View style={styles.container}>
-      <Text>{data}</Text>
+      <Text style={{ flex: 1 }}>{data}</Text>
       <View style={styles.info}>
-        <Text style={styles.temp}>{results.main.temp}</Text>
+        <Text>{Math.round(results.main.temp)}ºC</Text>
         <Image
           style={styles.image}
           source={{
@@ -43,9 +42,12 @@ const WeatherLocation = ({ data, onDelete }) => {
         />
       </View>
 
-      <Text>Temperature</Text>
+      <Text style={{ flex: 1 }}>Temperature</Text>
 
-      <TouchableOpacity onPress={onDelete}>
+      <TouchableOpacity
+        onPress={onDelete}
+        style={{ flex: 0.5, alignItems: "flex-end" }}
+      >
         <Icon name="closecircle" size={25}></Icon>
       </TouchableOpacity>
     </View>
@@ -56,16 +58,17 @@ const styles = StyleSheet.create({
   container: {
     flexDirection: "row",
     justifyContent: "space-between",
-    marginTop: 16,
-  },
-  info: {
-    flexDirection: "row",
-    justifyContent: "center",
-  },
-  temp: {
-    justifyContent: "center",
+    marginEnd: 16,
     alignItems: "center",
   },
+  info: {
+    flexWrap: "wrap",
+    flex: 1,
+    flexDirection: "row",
+    justifyContent: "space-around",
+    alignItems: "center",
+  },
+
   image: {
     height: 40,
     width: 40,

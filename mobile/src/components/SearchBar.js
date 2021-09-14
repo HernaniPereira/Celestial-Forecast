@@ -1,7 +1,23 @@
-import React, { useState, useEffect } from "react";
-import { StyleSheet, TextInput, View, Button, Keyboard } from "react-native";
+import React, { useState, useEffect, useRef } from "react";
+import {
+  StyleSheet,
+  TextInput,
+  View,
+  Button,
+  Keyboard,
+  Dimensions,
+  Animated,
+  TouchableOpacity,
+} from "react-native";
 import Icon from "react-native-vector-icons/Ionicons";
 import * as Animatable from "react-native-animatable";
+
+const { width } = Dimensions.get("window");
+const PADDING = 32;
+const SEARCH_FULL_WIDTH = width - PADDING * 2; //search_width when unfocused
+const SEARCH_SHRINK_WIDTH = width - PADDING - 90; //search_width when focused
+
+const AnimatedTouchable = Animated.createAnimatedComponent(TouchableOpacity);
 
 const SearchBar = ({
   locations,
@@ -10,85 +26,116 @@ const SearchBar = ({
   searchBarFocused,
 }) => {
   const [text, setText] = useState();
+  const inputLength = useRef(new Animated.Value(SEARCH_FULL_WIDTH)).current;
+  const cancelPosition = useRef(new Animated.Value(0)).current;
+  const opacity = useRef(new Animated.Value(0)).current;
 
   const onClick = () => {
     setLocations((locations) => [...locations, text]);
     setText("");
   };
 
-  useEffect(() => {
-    Keyboard.addListener("keyboardDidShow", _keyboardDidShow);
-    Keyboard.addListener("keyboardWillShow", _keyboardWillShow);
-    Keyboard.addListener("keyboardWillHide", _keyboardWillHide);
-    Keyboard.addListener("keyboardDidHide", _keyboardDidHide);
-    return () => {
-      Keyboard.removeListener("keyboardDidShow", _keyboardDidShow);
-      Keyboard.removeListener("keyboardDidHide", _keyboardDidHide);
-      Keyboard.removeListener("keyboardWillShow", _keyboardWillShow);
-      Keyboard.removeListener("keyboardWilldHide", _keyboardWillHide);
-    };
-  }, []);
-
-  const _keyboardDidShow = () => {
+  const onFocus = () => {
     setSearchBarFocused(true);
-  };
-  const _keyboardWillShow = () => {
-    setSearchBarFocused(true);
-  };
-  const _keyboardWillHide = () => {
-    setSearchBarFocused(false);
-  };
-  const _keyboardDidHide = () => {
-    setSearchBarFocused(false);
+    Animated.parallel([
+      Animated.timing(inputLength, {
+        toValue: SEARCH_SHRINK_WIDTH,
+        duration: 250,
+        useNativeDriver: false,
+      }),
+      Animated.timing(cancelPosition, {
+        toValue: 16,
+        duration: 400,
+        useNativeDriver: false,
+      }),
+      Animated.timing(opacity, {
+        toValue: 1,
+        duration: 250,
+        useNativeDriver: false,
+      }),
+    ]).start();
   };
 
+  const onBlur = () => {
+    setSearchBarFocused(false);
+    Animated.parallel([
+      Animated.timing(inputLength, {
+        toValue: SEARCH_FULL_WIDTH,
+        duration: 250,
+        useNativeDriver: false,
+      }),
+      Animated.timing(cancelPosition, {
+        toValue: 0,
+        duration: 250,
+        useNativeDriver: false,
+      }),
+      Animated.timing(opacity, {
+        toValue: 0,
+        duration: 250,
+        useNativeDriver: false,
+      }),
+    ]).start();
+  };
   return (
     <View style={styles.searchContainer}>
-      <Animatable.View
+      <Animated.View
         style={[
-          styles.searchInput,
+          styles.search,
           {
-            height: 50,
-            backgroundColor: "white",
-            flexDirection: "row",
+            width: inputLength,
+            position: "absolute",
+            alignSelf: "center",
             alignItems: "center",
           },
+          searchBarFocused === true
+            ? undefined
+            : { justifyContent: "flex-start" },
         ]}
       >
         <Animatable.View
           animation={searchBarFocused ? "fadeIn" : "zoomIn"}
-          duration={1000}
+          duration={2000}
         >
           <Icon
             name={searchBarFocused ? "md-arrow-back" : "ios-search"}
+            color={"white"}
             style={{ fontSize: 24 }}
           />
         </Animatable.View>
+
         <TextInput
-          style={{ marginLeft: 15 }}
+          style={{ marginLeft: 16 }}
+          onFocus={onFocus}
+          onBlur={onBlur}
           placeholder="Type Something"
           onChangeText={setText}
           multiline={true}
           value={text}
           selectionColor="#fff"
         />
-      </Animatable.View>
-      <Button
-        style={styles.cancelSearch}
+      </Animated.View>
+      <AnimatedTouchable
+        style={[styles.saveSearch, { right: cancelPosition }]}
         onPress={() => onClick()}
-        title="Save location"
       >
-        Save Location
-      </Button>
+        <Animated.Text style={([styles.saveSearchText], { opacity: opacity })}>
+          Save
+        </Animated.Text>
+      </AnimatedTouchable>
     </View>
   );
 };
 
 const styles = StyleSheet.create({
-  search: {},
+  search: {
+    flex: 1,
+    flexDirection: "row",
+    height: 50,
+    borderWidth: 1,
+    borderColor: "#48BBEC",
+    borderRadius: 8,
+  },
   searchInput: {
-    height: 36,
-    padding: 4,
     marginRight: 5,
     flexGrow: 1,
     fontSize: 18,
@@ -99,11 +146,17 @@ const styles = StyleSheet.create({
   },
   searchContainer: {
     flexDirection: "row",
-    alignItems: "center",
-    alignSelf: "stretch",
-    maxWidth: "100%",
+    height: 72,
+    borderBottomColor: "#00000033",
+    paddingTop: 100,
   },
-  cancelSearch: { flex: 1, position: "absolute", bottom: 0, left: 0 },
+  saveSearch: {
+    position: "absolute",
+    textAlign: "center",
+    justifyContent: "center",
+    alignSelf: "center",
+  },
+  saveSearchText: {},
 });
 
 export default SearchBar;
