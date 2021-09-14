@@ -12,11 +12,12 @@
 <h4 align="center">A minimal react-native Celestial-Forecast app.</h4>
 
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-[![Build Status](https://travis-ci.org/PanagiotisDrakatos/Weather-Forecast.svg?branch=master)](https://travis-ci.org/PanagiotisDrakatos/Weather-Forecast)
+<p align="center">[![Build Status](https://travis-ci.org/PanagiotisDrakatos/Weather-Forecast.svg?branch=master)](https://travis-ci.org/PanagiotisDrakatos/Weather-Forecast)
 [![star this repo](https://githubbadges.com/star.svg?user=HernaniPereira&repo=Celestial-Forecast&style=default)](https://github.com/HernaniPereira/Celestial-Forecast)
 [![fork this repo](https://githubbadges.com/fork.svg?user=HernaniPereira&repo=Celestial-Forecast&style=default)](https://github.com/HernaniPereira/Celestial-Forecast/fork)
 [![GitHub Issues](https://img.shields.io/github/issues/hernanipereira/celestial-forecast)](https://github.com/hernanipereira/celestial-forecast)
-![License](https://img.shields.io/badge/license-MIT-orange.svg)
+![License](https://img.shields.io/badge/license-MIT-orange.svg)</p>
+
 
 
 <p align="center">
