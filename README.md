@@ -13,9 +13,8 @@
 
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 [![Build Status](https://travis-ci.org/PanagiotisDrakatos/Weather-Forecast.svg?branch=master)](https://travis-ci.org/PanagiotisDrakatos/Weather-Forecast)
-[![star this repo](http://githubbadges.com/star.svg?user=PanagiotisDrakatos&repo=Weather-Forecast&style=flat&color=fff&background=007ec6)](https://github.com/HernaniPereira/Celestial-Forecast)
-[![star this repo](https://githubbadges.com/star.svg?user=hernanipereira&repo=celestial-forecast&style=default)](https://github.com/hernanipereira/celestial-forecast)
-[![fork this repo](https://githubbadges.com/fork.svg?user=hernanipereira&repo=celestial-forecast&style=default)](https://github.com/hernanipereira/celestial-forecast/fork)
+[![star this repo](https://githubbadges.com/star.svg?user=HernaniPereira&repo=Celestial-Forecast&style=default)](https://github.com/HernaniPereira/Celestial-Forecast)
+[![fork this repo](https://githubbadges.com/fork.svg?user=HernaniPereira&repo=Celestial-Forecast&style=default)](https://github.com/HernaniPereira/Celestial-Forecast/fork)
 [![GitHub Issues](https://img.shields.io/github/issues/hernanipereira/celestial-forecast)](https://github.com/hernanipereira/celestial-forecast)
 ![License](https://img.shields.io/badge/license-MIT-orange.svg)
 
