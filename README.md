@@ -17,6 +17,7 @@
 [![fork this repo](https://githubbadges.com/fork.svg?user=HernaniPereira&repo=Celestial-Forecast&style=default)](https://github.com/HernaniPereira/Celestial-Forecast/fork)
 [![GitHub Issues](https://img.shields.io/github/issues/hernanipereira/celestial-forecast)](https://github.com/hernanipereira/celestial-forecast)
 ![License](https://img.shields.io/badge/license-MIT-orange.svg)
+![GitHub pull requests](https://img.shields.io/github/issues-pr/hernaniPereira/Celestial-Forecast)
 
 
 
